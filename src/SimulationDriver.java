@@ -50,9 +50,11 @@ public class SimulationDriver {
                 answers[answerIdx] = candidateAnswers[random.nextInt(candidateAnswers.length)];
             }
 
+            // Mark the votes for this student.
             votingService.vote(student, answers);
         }
 
+        // Print the test statistics to the standard output.
         votingService.printStats();
     }
 }
