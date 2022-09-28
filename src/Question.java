@@ -2,20 +2,20 @@
  * A base class for a question. It provides methods to get a question,
  * candidate answers, and valid answers.
  */
-public interface Question {
+public abstract class Question {
     /**
-     * @return The question being answered.
+     * The question being answered.
      */
-    String getQuestion();
+    public String question;
 
     /**
-     * @return The possible answers that can be chosen.
+     * The possible answers that can be chosen.
      */
-    String[] getCandidateAnswers();
+    public String[] candidateAnswers;
 
     /**
      * @param candidateAnswers The answers selected by the user.
      * @return Only the valid answers.
      */
-    String[] validateAnswers(String[] candidateAnswers);
+    abstract String[] validateAnswers(String[] candidateAnswers);
 }

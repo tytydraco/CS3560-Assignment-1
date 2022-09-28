@@ -1,21 +1,7 @@
-public class SingleChoiceQuestion implements Question {
-    private final String[] candidateAnswers;
-
-    private final String question;
-
+public class SingleChoiceQuestion extends Question {
     public SingleChoiceQuestion(String question, String[] candidateAnswers) {
         this.question = question;
         this.candidateAnswers = candidateAnswers;
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
-    }
-
-    @Override
-    public String[] getCandidateAnswers() {
-        return candidateAnswers;
     }
 
     @Override

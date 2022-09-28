@@ -25,13 +25,13 @@ public class SimulationDriver {
      * @param question The question to test.
      */
     private static void testQuestion(Question question) {
-        System.out.println("Prompt: " + question.getQuestion());
+        System.out.println("Prompt: " + question.question);
 
         Random random = new Random();
 
         VotingService votingService = new VotingService(question);
 
-        String[] candidateAnswers = question.getCandidateAnswers();
+        String[] candidateAnswers = question.candidateAnswers;
         for (int i = 0; i < 100; i++) {
             Student student = new Student(String.valueOf(i));
             String answer1 = candidateAnswers[random.nextInt(candidateAnswers.length)];

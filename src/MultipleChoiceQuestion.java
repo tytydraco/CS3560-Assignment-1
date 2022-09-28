@@ -4,24 +4,10 @@ import java.util.List;
 /**
  * A question that can have multiple answers chosen.
  */
-public class MultipleChoiceQuestion implements Question {
-    private final String[] candidateAnswers;
-
-    private final String question;
-
+public class MultipleChoiceQuestion extends Question {
     public MultipleChoiceQuestion(String question, String[] candidateAnswers) {
         this.question = question;
         this.candidateAnswers = candidateAnswers;
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
-    }
-
-    @Override
-    public String[] getCandidateAnswers() {
-        return candidateAnswers;
     }
 
     @Override
