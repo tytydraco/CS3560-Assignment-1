@@ -1,11 +1,9 @@
-import java.util.List;
-
 public class SingleChoiceQuestion implements Question {
-    private final List<String> candidateAnswers;
+    private final String[] candidateAnswers;
 
     private final String question;
 
-    public SingleChoiceQuestion(String question, List<String> candidateAnswers) {
+    public SingleChoiceQuestion(String question, String[] candidateAnswers) {
         this.question = question;
         this.candidateAnswers = candidateAnswers;
     }
@@ -16,13 +14,13 @@ public class SingleChoiceQuestion implements Question {
     }
 
     @Override
-    public List<String> getCandidateAnswers() {
+    public String[] getCandidateAnswers() {
         return candidateAnswers;
     }
 
     @Override
-    public List<String> validateAnswers(List<String> candidateAnswers) {
+    public String[] validateAnswers(String[] candidateAnswers) {
         // Only return the last answer submitted.
-        return List.of(candidateAnswers.get(candidateAnswers.size() - 1));
+        return new String[]{candidateAnswers[candidateAnswers.length - 1]};
     }
 }

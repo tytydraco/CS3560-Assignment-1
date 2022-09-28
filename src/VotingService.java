@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Tracks user answers for a given question.
@@ -10,7 +9,7 @@ public class VotingService {
     /**
      * A map between student IDs and their selected answers.
      */
-    private final HashMap<String, List<String>> studentAnswers = new HashMap<>();
+    private final HashMap<String, String[]> studentAnswers = new HashMap<>();
 
     public VotingService(Question question) {
         this.question = question;
@@ -22,8 +21,8 @@ public class VotingService {
      * @param student The student who is voting,
      * @param answers The answers this student has chosen.
      */
-    public void vote(Student student, List<String> answers) {
-        final List<String> validatedAnswers = question.validateAnswers(answers);
+    public void vote(Student student, String[] answers) {
+        final String[] validatedAnswers = question.validateAnswers(answers);
         studentAnswers.put(student.id, validatedAnswers);
     }
 
@@ -32,14 +31,12 @@ public class VotingService {
      */
     public void printStats() {
         HashMap<String, Integer> answerStats = new HashMap<>();
-        studentAnswers.values().forEach((List<String> answers) -> {
-            answers.forEach((String answer) -> {
+        studentAnswers.values().forEach((String[] answers) -> {
+            for (String answer : answers) {
                 answerStats.put(answer, answerStats.getOrDefault(answer, 0) + 1);
-            });
+            }
         });
 
-        answerStats.forEach((String answer, Integer votes) -> {
-            System.out.println(answer + ": " + votes.toString());
-        });
+        answerStats.forEach((String answer, Integer votes) -> System.out.println(answer + ": " + votes.toString()));
     }
 }

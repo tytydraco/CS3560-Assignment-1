@@ -1,15 +1,15 @@
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * A question that can have multiple answers chosen.
  */
 public class MultipleChoiceQuestion implements Question {
-    private final List<String> candidateAnswers;
+    private final String[] candidateAnswers;
 
     private final String question;
 
-    public MultipleChoiceQuestion(String question, List<String> candidateAnswers) {
+    public MultipleChoiceQuestion(String question, String[] candidateAnswers) {
         this.question = question;
         this.candidateAnswers = candidateAnswers;
     }
@@ -20,16 +20,16 @@ public class MultipleChoiceQuestion implements Question {
     }
 
     @Override
-    public List<String> getCandidateAnswers() {
+    public String[] getCandidateAnswers() {
         return candidateAnswers;
     }
 
     @Override
-    public List<String> validateAnswers(List<String> candidateAnswers) {
+    public String[] validateAnswers(String[] selectedAnswers) {
         // Only pick the user answers that intersect with the possible answers.
-        return candidateAnswers
-                .stream()
-                .filter(candidateAnswers::contains)
-                .collect(Collectors.toList());
+        List<String> candidateList = Arrays.asList(candidateAnswers);
+        return Arrays.stream(selectedAnswers)
+                .filter(candidateList::contains)
+                .toArray(String[]::new);
     }
 }
