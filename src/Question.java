@@ -14,8 +14,8 @@ public abstract class Question {
     public String[] candidateAnswers;
 
     /**
-     * @param candidateAnswers The answers selected by the user.
+     * @param selectedAnswers The answers selected by the user.
      * @return Only the valid answers.
      */
-    abstract String[] validateAnswers(String[] candidateAnswers);
+    abstract String[] validateAnswers(String[] selectedAnswers);
 }

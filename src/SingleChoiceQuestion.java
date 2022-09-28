@@ -5,8 +5,8 @@ public class SingleChoiceQuestion extends Question {
     }
 
     @Override
-    public String[] validateAnswers(String[] candidateAnswers) {
+    public String[] validateAnswers(String[] selectedAnswers) {
         // Only return the last answer submitted.
-        return new String[]{candidateAnswers[candidateAnswers.length - 1]};
+        return new String[]{candidateAnswers[selectedAnswers.length - 1]};
     }
 }
