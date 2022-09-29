@@ -6,12 +6,31 @@ public abstract class Question {
     /**
      * The question being answered.
      */
-    public String question;
+    private final String question;
 
     /**
      * The possible answers that can be chosen.
      */
-    public String[] candidateAnswers;
+    private final String[] candidateAnswers;
+
+    Question(String question, String[] candidateAnswers) {
+        this.question = question;
+        this.candidateAnswers = candidateAnswers;
+    }
+
+    /**
+     * @return The question being answered.
+     */
+    public String getQuestion() {
+        return question;
+    }
+
+    /**
+     * @return The possible answers that can be chosen.
+     */
+    public String[] getCandidateAnswers() {
+        return candidateAnswers;
+    }
 
     /**
      * @param selectedAnswers The answers selected by the user.

@@ -5,13 +5,12 @@ import java.util.Optional;
 
 public class SingleChoiceQuestion extends Question {
     public SingleChoiceQuestion(String question, String[] candidateAnswers) {
-        this.question = question;
-        this.candidateAnswers = candidateAnswers;
+        super(question, candidateAnswers);
     }
 
     @Override
     public String[] validateAnswers(String[] selectedAnswers) {
-        List<String> candidateList = Arrays.asList(candidateAnswers);
+        List<String> candidateList = Arrays.asList(getCandidateAnswers());
 
         // Reverse the order to get the last valid value.
         final List<String> reversedAnswers = Arrays.asList(selectedAnswers);

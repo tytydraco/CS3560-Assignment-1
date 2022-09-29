@@ -23,7 +23,7 @@ public class VotingService {
      */
     public void vote(Student student, String[] answers) {
         final String[] validatedAnswers = question.validateAnswers(answers);
-        studentAnswers.put(student.id, validatedAnswers);
+        studentAnswers.put(student.getId(), validatedAnswers);
     }
 
     /**
